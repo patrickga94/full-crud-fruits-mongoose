@@ -4,24 +4,31 @@
 const mongoose = require('./connection')
 
 /////////////////////////////////
-// define our fruits model
+// define our user model
 /////////////////////////////////
 //pull the schema and model constructors from mongoose
 //we're going to use something call destructuring to accomplish this
 const { Schema, model } = mongoose
 
-//make our fruits schema
-const fruitSchema = new Schema ({
-    name: {type: String},
-    color: {type: String},
-    readyToEat: {type: Boolean},
-    username: {type: String}
-}, {timestamps: true})
+//Make a user schema
+const userSchema = new Schema({
+    username: {
+        type: String, 
+        required: true, 
+        unique: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+})
 
-//make our fruit model
-const Fruit = model('Fruit', fruitSchema)
+
+//make a user model
+const User = model("User", userSchema)
 
 /////////////////////////////////
-// export our model
+// export our user model
 /////////////////////////////////
-module.exports = Fruit
+
+module.exports = User

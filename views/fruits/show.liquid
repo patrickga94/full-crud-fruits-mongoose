@@ -1,0 +1,28 @@
+<!-- we're serving block content in layout.liquid-->
+<!-- so we need to inform all our blocks(files) -->
+{% layout 'layout.liquid'%}
+<!-- here we start our block content -->
+{% block content%}
+    <div>
+        <!--   inline styling:      <article style="background-color: {{fruit.color}}"> -->
+        <article>
+            <h2>
+                {{ fruit.name }}
+                {%if fruit.readyToEat%}
+                    Ready to Eat
+                {%else%}
+                    Not Ready to Eat
+                {%endif%}
+            </h2>
+            <h3>
+                {{fruit.color}}
+            </h3>
+            <div class="btn-group">
+            <a href="/fruits/{{fruit.id}}/edit" class="btn btn-primary">EDIT</a>
+            <form action="/fruits/{{fruit._id}}?_method=DELETE" method="POST">
+                <input type="submit" value="delete that froot" class="btn btn-danger">
+            </form>
+            </div>
+        </article>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!-- we're serving block content in layout.liquid-->
+<!-- so we need to inform all our blocks(files) -->
+{% layout 'layout.liquid'%}
+<!-- here we start our block content -->
+{% block content%}
+    <div></div>
+        <form action="/fruits" method="POST">
+            <fieldset>
+                <legend>Create New Fruit</legend>
+                <label class="form-label">
+                    Name: 
+                    <input
+                        class="form-control"
+                        type="text"
+                        name="name"
+                        placeholder="enter fruit name"
+                    >
+                </label>
+                <label>
+                    Color: 
+                    <input
+                        class="form-control"
+                        type="text"
+                        name="color"
+                        placeholder="enter fruit color"
+                    >
+                </label>
+                <label>
+                    Ready To Eat:
+                    <input 
+                        type="checkbox" 
+                        name="readyToEat"
+                        class="form-check-input"
+                    >
+                </label>
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Create New Fruit"
+            >
+        </form>
+    </div>
+
+
+{%endblock%}
